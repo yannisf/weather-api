@@ -1,0 +1,2 @@
+== Download city list
+xargs -n 1 curl -O < your_files.txt
