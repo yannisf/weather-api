@@ -1,2 +1,10 @@
 == Download city list
-xargs -n 1 curl -O < your_files.txt
+----
+$ xargs -n 1 curl -O < your_files.txt
+$ cat city.list.json.gz-url  | xargs curl | gunzip - > city.list.json
+----
+
+== Generate file
+----
+$ python3 python_city_list.py
+----

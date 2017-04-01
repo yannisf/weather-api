@@ -1,29 +1,29 @@
 import json
 
-cities = []
-
+greek_towns = []
 with open('city.list.json', 'r') as data:
     for line in data:
-        city = json.loads(line)
-        cities.append(city)
+        town = json.loads(line)
+        if town['country'] == 'GR':
+            greek_towns.append(
+                (town['_id'], town['name'], town['coord']['lat'], town['coord']['lon']))
 
-greek_towns = []
-for city in cities:
-    if city['country'] == 'GR':
-        coord = (city['coord']['lat'],city['coord']['lon'])
-        greek_towns.append(coord)
+_id, name, lat, lon = zip(*greek_towns)
 
-for coords in greek_towns:
-    print (coords)
+# max_lat = max(lat)
+# max_lon = max(lon)
+# min_lat = min(lat)
+# min_lon = min(lon)
 
-maxs = map(max, zip(*coords))
-mins = map(min, zip(*coords))
+# top_left = (max_lat, min_lon)
+# bottom_left = (min_lat, min_lon)
+# top_right = (max_lat, max_lon)
+# bottom_right = (min_lat, max_lon)
 
-print (maxs)
-print (mins)
+# print(top_left)
+# print(bottom_left)
+# print(top_right)
+# print(bottom_right)
 
-# top_left = (mins[0],maxs[1])
-# bottom_left = (mins[0],mins[1])
-# top_right = (maxs[0],maxs[1])
-# bottom_right = (maxs[0],mins[1])
-
+for town in greek_towns:
+    print("['{}', {}, {}, {}],".format(town[1], town[2], town[3], town[0]))
