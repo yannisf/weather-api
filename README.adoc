@@ -8,3 +8,6 @@ $ cat city.list.json.gz-url  | xargs curl | gunzip - > city.list.json
 ----
 $ python3 python_city_list.py
 ----
+
+== Google Maps API documentation
+https://developers.google.com/maps/documentation/javascript/markers
